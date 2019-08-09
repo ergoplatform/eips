@@ -1,2 +1,1 @@
-# eips
-Ergo Improvement Proposals
+# Ergo Improvement Proposals

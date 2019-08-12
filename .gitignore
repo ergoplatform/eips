@@ -1,0 +1,55 @@
+# IDE/Editor files
+.idea
+.ensime
+.ensime_cache/
+scorex.yaml
+
+# scala build folders
+target
+
+# dotfiles
+.editorconfig
+
+# standalone docker
+!Dockerfile
+
+# local application.conf
+local-application.conf
+*-local*.conf
+my*.conf
+
+# logs
+*.log
+*.log.gz
+*.tmp
+
+# binary files
+*.pdf
+*.gz
+
+# Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.bbl
+*.blg
+
+# db files
+*.data
+ergo/
+.ergo/
+
+# for temporary experiments
+sheet.scala
+project/project/
+
+local.conf
+

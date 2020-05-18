@@ -1,0 +1,63 @@
+EIP-11: Distributed Signatures
+-----------------------------
+
+This EIP defines how to implement distributed signatures on top of the Ergo Platform.
+
+
+Motivating Examples:
+====================
+
+Alice, Bob and Carol are doing joint business and want to have joint control over funds as well. They decide that 2-out-of-3 quorum is enough to spend the joint funds, so there is no problem if one of them can not sign because of an illness or a vacation. Thus they do store funds in boxes protected by 2-out-of-3 threshold signature. 
+
+Please note that unlike multi-signatures in Bitcoin, threshold signatures in Ergo preserve zero-knowledge. This leads to interesting applications where actual signers must be hidden but the signing ring is not. For example, it could be desirable to show that union paid to a lawyer, but it is better to hide who approved that spending.  
+
+Sigma Protocols:
+==================
+
+A Sigma-protocol is three-step protocol between a prover and a verifier. First, prover is generating (secret) randomness and sends a commitment to it *a* to a verifier. The verifier is storing the commitment and sends a random challenge *e* to the prover. Prover is generating a response *z* based on the randomness and the challenge and sends it to the verifier. Verifier checks the tuple *(a,e,z)* and accepts it if it is valid. 
+
+A Sigma-protocol can be converted to a signature scheme by using Fiat-Shamir transformation. Basically, using message *m*, prover can get challenge as *hash(m)* (note that this is about so-called Wek Fiat Shamir, while Ergo is using Strong Fiat-Shamir, where *e = hash(pk || m)*, and $pk$ is a statement (public key) the prover is proving).
+
+Sigma protocol also allows for simulation of proofs, AND / OR / threshold conjectures. Good introductions can be found in the Chapter 6 of the "Efficient Secure Two-Party Protocols: Techniques and Constructions" book by Lindell and Hazay, and also in the tutorial by Ivan Damgard: https://cs.au.dk/~ivan/Sigma.pdf. 
+
+For details on how proving and verification of arbitrary statements is done in ErgoTree (after reduction), see Appendix A in the ErgoScript whitepaper: https://ergoplatform.org/docs/ErgoScript.pdf . 
+
+Signing Procedure:
+==================
+
+First, signing quorum should be decided. For example, Alice and Bob may decide to sign a transaction. Other parties (Carol in this case) will be simulated.
+
+Then every real signer needs to generate commitments in the first place. In our example that means that e.g. Alice sends her commitment to Bob. 
+On getting the Alice's commitment, Bob is produced a threshold signature where his tuple (a_B, e_B, z_B) is proper, Carol's tuple (a_C, e_C, z_C) is properly simulated as well, but for Alice's
+(a_A, e_A', z_A') only the commitment is real, while other parts are simulated, thus the whole threshold signature is invalid. Bob needs for Alice to complete the signature.
+
+Thus the Bob is sending (a_B, z_B, a_C, z_C) to Alice, and now she can provide a valid signature. 
+
+In general case, signing procedure is as following:
+
+* First, needed quorum of real participants to be decided. Please note that in case of 2-out-3 signature, there are just 2 and only 2 signers needed (a third one will be simulated anyway by the prover).
+* Second, real participants generate commitments. In the simplest case, they can be sent to one of the signers.
+* One signer is producing an invalid signature and sends simulated commitments and his commitment and response to others.
+* Others produce proper responses and send them to the chosen signer (or broadcast)
+* Now the signer can assemble a valid signature.
+
+The most complex example at the moment of writing this document is 4-out-of-8 signature and it can be found in DistributedSigSpecification.scala of https://github.com/ScorexFoundation/sigmastate-interpreter/pull/412 . 
+
+
+Data Packets:
+=============
+
+JSON documents are used for exchanging . 
+
+
+
+Implementation:
+===============
+
+
+
+Limitations
+===========
+
+Please note that while threshold signatures preserve zero-knowledge (e.g. in case of 2-out-of-3 threshold signature it is 
+known that two parties of out three at least signed an input, but not known who are these parties exactly) for a blockchain observer, participants of the signing group know who was involved in the signing process. Secrecy within the group can be achieved via MPC protocols.  

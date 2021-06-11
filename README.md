@@ -6,9 +6,10 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 
 | Number | Title |
 | ---  | ---  |
-| [EIP-0001](eip-0001.md) | UTXO-Set Scanning Wallet API |
-| [EIP-0002](eip-0002.md) | Ergo Grant Program | 
-| [EIP-0003](eip-0003.md) | BIP-44 Standard For Ergo Platform | 
-| [EIP-0004](eip-0004.md) | Assets Standard | 
-| [EIP-0005](eip-0005.md) | Contract Template | 
-| [EIP-0006](eip-0006.md) | Informal Smart Contract Protocol Specification Format | 
+| [EIP-0001](eip-0001.md) | Application-Friendly Wallet API |
+| [EIP-0002](eip-0002.md) | Ergo grant program |
+| [EIP-0003](eip-0003.md) | Deterministic Wallet Standard |
+| [EIP-0004](eip-0004.md) | Assets standard |
+| [EIP-0005](eip-0005.md) | Contract Template |
+| [EIP-0006](eip-0006.md) | Informal Smart Contract Protocol Specification Format |
+| [EIP-0017](eip-0017.md) | Proxy Contracts |

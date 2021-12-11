@@ -13,4 +13,6 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | [EIP-0005](eip-0005.md) | Contract Template |
 | [EIP-0006](eip-0006.md) | Informal Smart Contract Protocol Specification Format |
 | [EIP-0017](eip-0017.md) | Proxy Contracts |
+| [EIP-0021](eip-0021.md) | Genuine tokens verification |
 | [EIP-0022](eip-0022.md) | Auction Contract |
+| [EIP-0024](eip-0024.md) | Artwork contract |

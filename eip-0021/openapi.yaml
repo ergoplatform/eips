@@ -1,0 +1,99 @@
+openapi: 3.0.1
+info:
+  title: Ergo Platform Genuine Tokens Verification
+  description: 'See [EIP-21](https://github.com/ergoplatform/eips/blob/master/eip-0021.md) for full information'
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+tags:
+  - name: tokenVerification
+    description: APIs implementing EIP-21
+    externalDocs:
+      description: EIP-21
+      url: https://github.com/ergoplatform/eips/blob/master/eip-0021.md
+paths:
+  /tokens/check/{tokenId}/{tokenName}:
+    get:
+      tags:
+        - tokenVerification
+      summary: Check a token verification
+      operationId: checkToken
+      parameters:
+        - name: tokenId
+          in: path
+          description: ID of token to return
+          required: true
+          schema:
+            type: string
+        - name: tokenName
+          in: path
+          description: ID of token to return
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckResponse'
+  /tokens/listGenuine:
+    get:
+      tags:
+        - tokenVerification
+      summary: Lists all genuine tokens known
+      operationId: listGenuine
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GenuineToken'
+  /tokens/listBlocked:
+    get:
+      tags:
+        - tokenVerification
+      summary: Lists all blocked tokens
+      operationId: listBlocked
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+
+components:
+  schemas:
+    CheckResponse:
+      type: object
+      properties:
+        genuine:
+          type: integer
+          description: Flag with 0 unknown, 1 verified, 2 suspicious, 3 blocked (see EIP-21)
+          format: int32
+        token:
+          anyOf:
+            - $ref: '#/components/schemas/GenuineToken'
+          nullable: true
+    GenuineToken:
+      type: object
+      properties:
+        tokenId:
+          type: string
+        tokenName:
+          type: string
+        uniqueName:
+          type: boolean
+        issuer:
+          type: string
+          nullable: true
+

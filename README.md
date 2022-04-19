@@ -19,3 +19,4 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | [EIP-0022](eip-0022.md) | Auction Contract |
 | [EIP-0024](eip-0024.md) | Artwork contract |
 | [EIP-0025](eip-0025.md) | Payment Request URI |
+| [EIP-0030](eip-0030.md) | Dexy StableCoin design |

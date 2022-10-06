@@ -1,0 +1,83 @@
+Partial Voting Hard Fork
+===============================
+
+* Author: WilfordGrimley
+* Status: Researching (not yet proposed formally)
+* Created: 06-Oct-2022
+* Last edited: 06-Oct-2022
+* License: CC0
+* Forking: Hard Fork Needed
+
+
+Motivation 
+----------
+
+The goal of this proposal is to return governance power to miners to give it parity with Ergo’s launch. When Ergo launched, it’s mining algorithm Autolykos
+did not support outsourcability, and as such each miner was forced to solo mine. Ergo’s governance model, requiring a 90% supermajority to pass soft and hard forks,
+was built with the same assumptions: that each miner would be solo mining and thus would vote for or against changes to the network as they see fit.
+With Autolykos 2, non-outsourcability was disabled such that miners could join traditional stratum pools. This changed the assumptions of Ergo’s governance model:
+a solo miner now has to compete with pooled miners for blocks (and therefor their right to vote). A miner could choose to join a stratum pool, but are dependent on
+the pool developers and their willingness and capability to support a miner’s vote. Furthermore, even if a pool holds an internal vote in some way, the pool in still
+limited by the protocol to be either entirely for or against any given change. Regardless of a pool’s desire to abide it’s miners' votes accurately, it still must
+censor some of them (unless they are unanimous)
+
+By enabling partial voting, mining pools that desire to give governance rights back to miners need only track their miner’s votes, and could submit them directly to
+the network. (e.g. 91.56% of the hashrate on GetBlok is in favor of EIP 39 when it mines a block. GetBlok’s submits a block header with that block with the value
+of 0.9156 in favour of the fork; WoolyPool mines the next block, 82% in favour, submitting a 0.82 value in favour of the fork; GetBlok mines the next block, this
+time their miners indicated 0.931 in favour of the change, etc, etc.)
+
+There is an alternative to hard-forking to achieve similar results but it has large hardware overhead requirement for central pool operators, and requires splitting
+the hashrate of traditonal mining pools into smaller, but still centrally controlled fragments. The viability of this no-fork solution should be explored more
+thoroughly before forcing order on this hard-fork solution, as future decentralized smartpool development could render this issue obsolete.
+
+
+The Fork Solution
+-------------------------
+
+We introduce a new verification stage
+
+
+The No-fork Solution
+------------------------
+
+With the updated emission schedule described above, re-emission (with 3 ERG re-emission rewards per block) would be enough for 4,566,336 blocks (~17.38 years).
+
+General Design
+--------------
+
+
+
+Contracts
+-------------------
+
+
+Voting for the Soft-Fork
+------------------------
+
+
+
+Activation Details
+------------------
+
+
+API Methods Changed
+-------------------
+
+
+Node Settings
+-------------
+
+
+Testnet Data
+------------ 
+
+
+
+Mainnet Data
+------------
+
+
+
+References
+----------
+

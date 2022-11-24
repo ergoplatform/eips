@@ -27,8 +27,7 @@
   val validPoolIn = poolIn.tokens(0)._1 == poolNFT
   
   val validPoolOut = poolIn.tokens(0) == poolOut.tokens(0)                && // NFT preserved
-                     poolIn.creationInfo._1 == poolOut.creationInfo._1    && // creation height preserved
-                     poolIn.value == poolOut.value                        && // value preserved 
+                     poolIn.value == poolOut.value                        && // value preserved
                      poolIn.R4[Long] == poolOut.R4[Long]                  && // rate preserved  
                      poolIn.R5[Int] == poolOut.R5[Int]                    && // counter preserved
                      ! (poolOut.R6[Any].isDefined)

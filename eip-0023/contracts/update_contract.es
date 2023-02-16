@@ -5,8 +5,8 @@
   // R4 the pub key of voter [GroupElement] (not used here)
   // R5 the creation height of this box [Int]
   // R6 the value voted for [Coll[Byte]] (hash of the new pool box script)
-  // R7 the reward token id in new box 
-  // R8 the number of reward tokens in new box 
+  // R7 the reward token id in new box (optional, if not present then reward token is preserved)
+  // R8 the number of reward tokens in new box (optional, if not present then reward token is preserved))
 
   val poolNFT = fromBase64("RytLYlBlU2hWbVlxM3Q2dzl6JEMmRilKQE1jUWZUalc=") // TODO replace with actual 
 
@@ -39,12 +39,18 @@
                        updateBoxOut.creationInfo._1 > SELF.creationInfo._1    &&
                        ! (updateBoxOut.R4[Any].isDefined) 
 
+  val rewardTokenPreserved = poolIn.tokens(1)._1 == rewardTokenId &&  // check reward token id is preserved
+                             poolIn.tokens(1)._2 == rewardAmt         // check reward token amt is preserved
+
   def isValidBallot(b:Box) = if (b.tokens.size > 0) {
+    val validRewardToken = if (b.R7[Coll[Byte]].isDefined && b.R8[Long].isDefined) {
+      b.R7[Coll[Byte]].get == rewardTokenId && // check rewardTokenId voted for
+      b.R8[Long].get == rewardAmt              // check rewardTokenAmt voted for
+    } else rewardTokenPreserved
     b.tokens(0)._1 == ballotTokenId       &&
     b.R5[Int].get == SELF.creationInfo._1 && // ensure vote corresponds to this box by checking creation height
     b.R6[Coll[Byte]].get == poolOutHash   && // check proposition voted for
-    b.R7[Coll[Byte]].get == rewardTokenId && // check rewardTokenId voted for
-    b.R8[Long].get == rewardAmt              // check rewardTokenAmt voted for
+    validRewardToken
   } else false
   
   val ballotBoxes = INPUTS.filter(isValidBallot)

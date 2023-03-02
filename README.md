@@ -17,8 +17,9 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | [EIP-0020](eip-0020.md) | ErgoPay Protocol |
 | [EIP-0021](eip-0021.md) | Genuine tokens verification |
 | [EIP-0022](eip-0022.md) | Auction Contract |
-| [EIP-0024](eip-0024.md) | Artwork contract |
+| [EIP-0024](eip-0024.md) | Artwork Standard     |
 | [EIP-0025](eip-0025.md) | Payment Request URI |
 | [EIP-0027](eip-0027.md) | Emission Retargeting Soft-Fork |
 | [EIP-0031](eip-0031.md) | Babel Fees |
+| [EIP-0034](eip-0034.md) | NFT Collection Standard |
 | [EIP-0039](eip-0039.md) | Monotonic box creation height rule |

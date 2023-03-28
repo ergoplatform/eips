@@ -23,3 +23,4 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | [EIP-0031](eip-0031.md) | Babel Fees |
 | [EIP-0034](eip-0034.md) | NFT Collection Standard |
 | [EIP-0039](eip-0039.md) | Monotonic box creation height rule |
+| [EIP-0045](eip-0045.md) | Redistribution Smart Contract for claimed Storage Fees |

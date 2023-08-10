@@ -28,6 +28,5 @@
   
   val owner = proveDlog(selfPubKey)
   
-  // unlike in collection, here we don't require spender to be one of the ballot token holders
-  isSimpleCopy && (owner || update)
+  owner || (isSimpleCopy && update)
 }

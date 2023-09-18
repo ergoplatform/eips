@@ -7,7 +7,19 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | Number | Title |
 | ---  | ---  |
 | [EIP-0001](eip-0001.md) | Application-Friendly Wallet API |
-| [EIP-0002](eip-0002.md) | Ergo grant program | 
-| [EIP-0003](eip-0003.md) | BIP-44 standard for Ergo Platform | 
-| [EIP-0004](eip-0004.md) | Assets standard | 
-| [EIP-0005](eip-0005.md) | Contract Template | 
+| [EIP-0002](eip-0002.md) | Ergo grant program |
+| [EIP-0003](eip-0003.md) | Deterministic Wallet Standard |
+| [EIP-0004](eip-0004.md) | Assets standard |
+| [EIP-0005](eip-0005.md) | Contract Template |
+| [EIP-0006](eip-0006.md) | Informal Smart Contract Protocol Specification Format |
+| [EIP-0017](eip-0017.md) | Proxy Contracts |
+| [EIP-0019](eip-0019.md) | Cold Wallet Protocol |
+| [EIP-0020](eip-0020.md) | ErgoPay Protocol |
+| [EIP-0021](eip-0021.md) | Genuine tokens verification |
+| [EIP-0022](eip-0022.md) | Auction Contract |
+| [EIP-0024](eip-0024.md) | Artwork Standard     |
+| [EIP-0025](eip-0025.md) | Payment Request URI |
+| [EIP-0027](eip-0027.md) | Emission Retargeting Soft-Fork |
+| [EIP-0031](eip-0031.md) | Babel Fees |
+| [EIP-0034](eip-0034.md) | NFT Collection Standard |
+| [EIP-0039](eip-0039.md) | Monotonic box creation height rule |

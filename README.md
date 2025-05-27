@@ -5,7 +5,7 @@ Ergo Improvement Proposals (EIPs) specify and/or describe standards for the Ergo
 Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the general expectation of how EIPs are supposed to be formatted.
 
 | Number                  | Title                                                 |
-| ----------------------- | ----------------------------------------------------- |
+|-------------------------|-------------------------------------------------------|
 | [EIP-0001](eip-0001.md) | Application-Friendly Wallet API                       |
 | [EIP-0002](eip-0002.md) | Ergo grant program                                    |
 | [EIP-0003](eip-0003.md) | Deterministic Wallet Standard                         |
@@ -25,3 +25,4 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | [EIP-0039](eip-0039.md) | Monotonic box creation height rule                    |
 | [EIP-0043](eip-0043.md) | Reduced Transaction                                   |
 | [EIP-0044](eip-0044.md) | Arbitrary Data Signing Standard                       |
+| [EIP-0050](eip-0050.md) | Ergo protocol 6.0 Soft-Fork                           |

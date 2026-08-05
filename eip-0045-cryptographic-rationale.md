@@ -72,10 +72,10 @@ This distinction is important:
 | Exact verifier constants and tables | Frozen in the 65,119-byte binary-data artifact | Binary-data artifact |
 | Current profile identity | Closed for the preactivation candidate as `23c4a123...7d383`; `cd0493f8...a397d` is superseded historical evidence | Canonical manifest hash |
 | Consensus costs | Not calibrated | Cost schedule and transition snapshot |
-| Shipping-prover vectors | Two non-B4 diagnostic positives exist: the superseded pre-B3 `po2 = 15` fixture and the independent real `po2 = 16` raw-seal KAT. The unpublished candidate B4 negative-plan foundation enumerates 62 groups and 254 executions, but its exact schema publication and digest binding, the ordered eleven-positive archive, 254 materialization identities, and 508 Rust/JVM result records remain incomplete | Non-normative conformance evidence |
+| Shipping-prover vectors | Two non-B4 diagnostic positives exist: the superseded pre-B3 `po2 = 15` fixture and the independent real `po2 = 16` raw-seal KAT. The unpublished candidate B4 negative-plan foundation enumerates 63 groups and 254 executions, but its exact schema publication and digest binding, the ordered eleven-positive archive, 254 materialization identities, and 508 Rust/JVM result records remain incomplete | Non-normative conformance evidence |
 | Network activation | Not proposed | Exact validation update and transition package |
 
-The candidate negative side currently enumerates a 62-group, 254-execution
+The candidate negative side currently enumerates a 63-group, 254-execution
 plan. It is not canonical until its exact schemas are published and
 digest-bound. Its four-field registry rows describe materialization only; the 254
 materialization identities and 508 implementation-specific Rust/JVM results

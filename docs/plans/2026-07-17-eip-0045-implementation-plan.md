@@ -667,7 +667,7 @@ material until the Phase 7 compiler supports the opcode; Phase 7 must then
 compile it to those already frozen bytes or fail the gate. Task 6.2 reuses the
 same proposition bytes in every transaction fixture.
 
-The current unpublished candidate B4 negative-plan foundation contains 62 ordered groups
+The current unpublished candidate B4 negative-plan foundation contains 63 ordered groups
 and 254 executions: 131 `verifier-input`, 102 `artifact-validator`, and 21
 `tree-validator`. Its four-field registry rows, implementation-neutral
 materialization identities, and separate Rust/JVM validation results remain
@@ -1729,7 +1729,7 @@ guest and verifies one candidate-only `po2 = 15` shipping-prover export end to
 end; that fixture is excluded from the final corpus.
 The superseded candidate corpus carries a historical 24-case mutation-gate
 table and representative negative tests; neither can close B4. The current
-candidate B4 foundation instead enumerates 62 groups and 254 executions, with one
+candidate B4 foundation instead enumerates 63 groups and 254 executions, with one
 implementation-neutral identity per execution and 508 separate Rust/JVM
 results still to be materialized. Its `expanded` lifecycle remains fail-closed
 until full semantic replay agrees, and its exact schemas remain unpublished

@@ -25,3 +25,4 @@ Please check out existing EIPs, such as [EIP-1](eip-0001.md), to understand the 
 | [EIP-0039](eip-0039.md) | Monotonic box creation height rule                    |
 | [EIP-0043](eip-0043.md) | Reduced Transaction                                   |
 | [EIP-0044](eip-0044.md) | Arbitrary Data Signing Standard                       |
+| [EIP-0053](eip-0053.md) | Storage Rent Grace Period                             |

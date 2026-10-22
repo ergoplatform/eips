@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ergo:eip-0045:b4-negative-plan-v1",
+  "title": "Eip0045B4NegativePlanV1",
+  "description": "Closed-shape schema for the 63-group, 254-execution B4 negative plan. Exact group/execution ordering, per-group counts, parser cut positions, domain/surface/result compatibility, and equality with the compiled canonical inventory remain parser and campaign-gate obligations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "formatVersion",
+    "groups",
+    "totalVariantCount"
+  ],
+  "properties": {
+    "format": {
+      "const": "Eip0045B4NegativePlanV1"
+    },
+    "formatVersion": {
+      "const": 1
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 63,
+      "maxItems": 63,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/Group"
+      }
+    },
+    "totalVariantCount": {
+      "const": 254
+    }
+  },
+  "$defs": {
+    "LowerKebab128": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-z](?:[a-z0-9]|-[a-z0-9])*$"
+    },
+    "VariantId": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/LowerKebab128"
+        },
+        {
+          "not": {
+            "pattern": "(?:^|-)(?:all|any|every|wildcard|todo|tbd)(?:-|$)"
+          }
+        }
+      ]
+    },
+    "ExecutionId": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 258,
+      "pattern": "^(?=.{1,128}--.{1,128}$)[a-z](?:[a-z0-9]|-[a-z0-9])*--[a-z](?:[a-z0-9]|-[a-z0-9])*$"
+    },
+    "Class": {
+      "enum": [
+        "statement-binding",
+        "proof-transport",
+        "canonical-outer-words",
+        "parser-phases",
+        "terminal-policy",
+        "claim-semantics",
+        "resolve-semantics",
+        "cryptographic-rejection-depth",
+        "profile-package-and-registry"
+      ]
+    },
+    "Fixture": {
+      "enum": [
+        "lift-po2-15",
+        "alternate-root-lift-po2-15-v1",
+        "lift-po2-15-reference-statement-v1",
+        "lift-po2-15-opcode-inputs-v1",
+        "lift-po2-15-parser-oracle",
+        "terminal-join",
+        "stock-control-table-v1",
+        "stock-excluded-control-table-v1",
+        "excluded-family-receipts-v1",
+        "allowed-terminal-non-ok-v1",
+        "case9-conditional-receipt-v1",
+        "join-resolve-edge-set-v1",
+        "case9-typed-ancestry-v1",
+        "case10-typed-ancestry-v1",
+        "terminal-fixture-catalog-v1",
+        "sequence-subject-catalog-v1",
+        "risc0-v3-succinct-package-v1",
+        "b4-candidate-corpus-v1"
+      ]
+    },
+    "MaterializationDomain": {
+      "enum": [
+        "verifier-input",
+        "artifact-validator",
+        "tree-validator"
+      ]
+    },
+    "ExecutionSurface": {
+      "enum": [
+        "opcode-preflight",
+        "raw-statement-claim-binding",
+        "raw-seal-shape",
+        "risc0-parser-internal",
+        "risc0-cryptographic-verifier",
+        "terminal-policy",
+        "receipt-claim-policy",
+        "ancestry-replay",
+        "profile-manifest-codec",
+        "initial-profile-target",
+        "profile-artifact-envelope",
+        "activated-profile-package",
+        "terminal-fixture-catalog",
+        "sequence-subject-catalog",
+        "terminal-metadata",
+        "profile-id-preimage",
+        "candidate-registry",
+        "negative-binding-index",
+        "corpus-closure"
+      ]
+    },
+    "QaResultCode": {
+      "enum": [
+        "raw-seal-claim-mismatch",
+        "opcode-profile-id-length-invalid",
+        "opcode-program-id-length-invalid",
+        "opcode-application-payload-too-large",
+        "opcode-proof-chunk-count-invalid",
+        "opcode-proof-chunk-length-invalid",
+        "raw-seal-word-not-reduced",
+        "raw-seal-nonzero-root-padding",
+        "raw-seal-claim-halfword-out-of-range",
+        "b4-byte-order-rejected-at-bound-checkpoint",
+        "raw-seal-wrong-outer-po2",
+        "b4-parser-unexpected-eof-at-phase",
+        "raw-seal-inner-control-root-mismatch",
+        "b4-terminal-metadata-mismatch",
+        "raw-seal-control-id-not-allowed",
+        "b4-ancestry-claim-edge-mismatch",
+        "b4-resolve-explicit-semantics-mismatch",
+        "b4-resolve-zero-root-semantics-mismatch",
+        "b4-resolve-assumption-inventory-invalid",
+        "b4-crypto-early-checkpoint-rejected",
+        "b4-crypto-middle-checkpoint-rejected",
+        "b4-crypto-late-checkpoint-rejected",
+        "b4-crypto-final-checkpoint-rejected",
+        "b4-profile-manifest-length-invalid",
+        "b4-profile-manifest-version-unsupported",
+        "b4-profile-exact-proof-bytes-invalid",
+        "b4-profile-maximum-payload-invalid",
+        "b4-profile-outer-po2-invalid",
+        "b4-profile-identity-mismatch",
+        "b4-profile-terminal-field-invalid",
+        "b4-profile-terminal-control-id-duplicate",
+        "b4-profile-terminal-order-invalid",
+        "b4-profile-artifact-reference-invalid",
+        "b4-profile-artifact-kind-position-invalid",
+        "b4-profile-artifact-digest-mismatch",
+        "b4-profile-id-mismatch",
+        "b4-profile-id-preimage-mismatch",
+        "b4-terminal-fixture-catalog-binding-mismatch",
+        "b4-sequence-subject-provenance-mismatch",
+        "b4-corpus-representative-stratum-missing",
+        "b4-corpus-extra-file",
+        "b4-registry-mandatory-positive-missing",
+        "b4-registry-case-id-duplicate",
+        "b4-registry-positive-order-invalid",
+        "b4-registry-positive-label-invalid",
+        "b4-registry-negative-class-unknown",
+        "b4-registry-unknown-field",
+        "b4-registry-noncanonical-jcs",
+        "b4-negative-plan-registry-bijection-mismatch"
+      ]
+    },
+    "Execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseSelectorId",
+        "executionId",
+        "executionSurface",
+        "fixture",
+        "materializationDomain",
+        "qaResultCode",
+        "variantId"
+      ],
+      "properties": {
+        "baseSelectorId": {
+          "$ref": "#/$defs/LowerKebab128"
+        },
+        "executionId": {
+          "$ref": "#/$defs/ExecutionId"
+        },
+        "executionSurface": {
+          "$ref": "#/$defs/ExecutionSurface"
+        },
+        "fixture": {
+          "$ref": "#/$defs/Fixture"
+        },
+        "materializationDomain": {
+          "$ref": "#/$defs/MaterializationDomain"
+        },
+        "qaResultCode": {
+          "$ref": "#/$defs/QaResultCode"
+        },
+        "parserTruncationWords": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "variantId": {
+          "$ref": "#/$defs/VariantId"
+        }
+      }
+    },
+    "Group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "caseId",
+        "class",
+        "executions",
+        "variantCount"
+      ],
+      "properties": {
+        "caseId": {
+          "$ref": "#/$defs/LowerKebab128"
+        },
+        "class": {
+          "$ref": "#/$defs/Class"
+        },
+        "executions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 254,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/Execution"
+          }
+        },
+        "variantCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 254
+        }
+      }
+    }
+  }
+}

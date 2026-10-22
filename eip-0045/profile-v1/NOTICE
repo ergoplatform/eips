@@ -1,0 +1,12 @@
+EIP-0045 RISC Zero succinct profile V1
+
+Certain algorithm and binary-data artifacts contain material adapted from
+RISC Zero projects and are subject to the Apache License, Version 2.0. See
+LICENSE-APACHE.
+
+RISC Zero components:
+Copyright 2024-2026 RISC Zero, Inc.
+
+RISC Zero credits https://github.com/nhukc for the initial Poseidon2
+implementation. The Poseidon2 parameters follow the reference parameters at
+https://github.com/HorizenLabs/poseidon2.

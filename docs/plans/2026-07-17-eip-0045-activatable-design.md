@@ -380,9 +380,9 @@ recorded. A separately labeled instrumented verifier may consume existing
 seals and emit checkpoints, but it cannot generate or modify fresh-evidence
 receipts.
 
-Freshness uses a post-precommit public challenge, not digest inequality. Each
-of two independent operators first fixes a schema-defined `RunPrecommitV1` for
-a newly provisioned locked environment on a distinct host or VM trust domain,
+Freshness uses a post-precommit public challenge, not digest inequality. One
+or more operators first fix a schema-defined `RunPrecommitV1` for each of two
+newly provisioned locked environments in distinct host or VM trust domains,
 with no shared writable source, build, cache, or output volume.
 Content-addressed dependency caches may be shared read-only. Exact fields bind
 a unique 32-byte `runId`, profile/chain/program/contract and payload length 32,

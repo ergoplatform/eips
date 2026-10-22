@@ -1532,8 +1532,8 @@ construction, `LOCK.json`, `schema-v1.json`, generator binary, and guest ELF;
 and after Tasks 8.2 and 13.1 through 13.4 have produced and exercised the final
 JVM verifier. No provisional identifier or verifier result is permitted.
 
-Each of two independent operators provisions a locked environment on a
-different host or VM trust domain with empty source, build, and output paths and
+One or more operators MUST provision the two locked environments in distinct
+host or VM trust domains, each with empty source, build, and output paths and
 no shared writable volume. Shared dependency/image caches must be
 content-addressed, digest-checked, and read-only. Create distinct canonical
 `RunPrecommitV1` records and verify every field, including
